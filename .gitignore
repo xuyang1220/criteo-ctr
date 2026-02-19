@@ -1,0 +1,28 @@
+# data
+data/
+*.csv
+*.tsv
+*.parquet
+
+# models / artifacts
+*.pkl
+*.joblib
+*.bin
+*.model
+*.txt
+*.lgb
+
+# notebooks checkpoints
+.ipynb_checkpoints/
+
+# python cache
+__pycache__/
+*.pyc
+
+# environments
+.venv/
+venv/
+.env
+
+# OS
+.DS_Store
