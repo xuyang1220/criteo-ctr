@@ -11,6 +11,7 @@ This repo trains Logistic Regression models and LightGBM CTR model on the Criteo
 python -m venv .venv
 source .venv/bin/activate   # (Windows: .venv\Scripts\activate)
 pip install -r requirements.txt
+```
 
 ## Notebooks
 see 
