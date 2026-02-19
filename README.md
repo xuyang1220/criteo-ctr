@@ -51,7 +51,7 @@ This is achieved by
     - Isotonic regression and single calibration layer gives similar performance.  
 
 ### LightGBM train on 5M rows, Train/Eval/Test split: 0.8/0.1/0.1 
-split seed = 42, 11s
+split seed = 42, 11
 
 The best offline metrics on test set we get is:
 | Metric         | Value  |
