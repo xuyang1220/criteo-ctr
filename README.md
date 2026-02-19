@@ -26,7 +26,9 @@ and place train.txt under:
 
 ## Key results
 
-### LR train on 5M rows, split by Train/Test: 0.8/0.2 (split seed = 42)
+### LR train on 5M rows, Train/Test split: 0.8/0.2 
+
+- split seed = 42
 
 Best metric on test dataset:
 
@@ -48,7 +50,8 @@ This is achieved by
   - Bucketized calibration layer by platt scaling.
     - Isotonic regression and single calibration layer gives similar performance.  
 
-### LightGBM train on 5M rows, Train eval test split Train/Eval/Test: 0.8/0.1/0.1 (split seed = 42, 11)
+### LightGBM train on 5M rows, Train/Eval/Test split: 0.8/0.1/0.1 
+split seed = 42, 11s
 
 The best offline metrics on test set we get is:
 | Metric         | Value  |
