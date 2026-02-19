@@ -4,7 +4,7 @@
 
 - split seed = 42
 
-Best metric on test dataset:
+Best metric on test dataset we get is:
 
 | Metric   | Value  |
 |----------|--------|
