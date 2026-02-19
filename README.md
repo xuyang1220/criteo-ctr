@@ -26,7 +26,9 @@ and place train.txt under:
 
 ## Key results
 
-### LR train on 5M rows, split by 0.8 0.2 (split seed = 42)
+### LR train on 5M rows, split by Train/Test: 0.8/0.2 (split seed = 42)
+
+Best metric on test dataset:
 
 | Metric   | Value  |
 |----------|--------|
@@ -46,8 +48,9 @@ This is achieved by
   - Bucketized calibration layer by platt scaling.
     - Isotonic regression and single calibration layer gives similar performance.  
 
-### LightGBM train on 5M rows, Train eval test split 0.8, 0.1, 0.1 (split seed = 42, 11)
-The best offline metrics we get is:
+### LightGBM train on 5M rows, Train eval test split Train/Eval/Test: 0.8/0.1/0.1 (split seed = 42, 11)
+
+The best offline metrics on test set we get is:
 | Metric         | Value  |
 |----------------|--------|
 | auc            | 0.7964 |
@@ -62,7 +65,20 @@ The best offline metrics we get is:
 
 {'k': 0.05, 'n_top': 25000, 'ctr_top': 0.78296, 'ctr_all': 0.25125, 'lift': 3.1162587064676495}
 
-This is achieved by model params:
+This is achieved by:
+
+- Feature engineering
+  - Features added
+    - hashing of categorical features
+    - log1p on numerical features
+    - category feature freq 
+    - missing features
+  - Features excluded
+    - Feature crossings
+    - Log frequencies
+
+  
+- LightGBM model params:
 ```python
     params = {
         "objective": "binary",
@@ -79,15 +95,5 @@ This is achieved by model params:
         "seed": 42,
     }
 ```
-
-- Feature engineering
-  - Features added
-    - hashing of categorical features
-    - log1p on numerical features
-    - category feature freq 
-    - missing features
-  - Features excluded
-    - Feature crossings
-    - Log frequencies
 
 
