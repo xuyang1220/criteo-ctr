@@ -26,13 +26,14 @@ and place train.txt under:
 
 ## Key results
 
-### LR train on 5M rows
+### LR train on 5M rows, split by 0.8 0.2 (split seed = 42)
 
-| Metric  | Value               |
-|---------|---------------------|
-| AUC     | 0.7695613027078851  |
-| LogLoss | 0.4737566646540216  |
-| Brier   | 0.1540212026676044  |
+| Metric   | Value  |
+|----------|--------|
+| AUC      | 0.7696 |
+| LogLoss  | 0.4726 |
+| Brier    | 0.1536 |
+| Mean p   | 0.2511 |
 
 This is achieved by
 
@@ -42,19 +43,20 @@ This is achieved by
 
 - Model Architecture
   - SGDClassifier optimization method.
-  - Bucktized calibration layer by platt scaling.
+  - Bucketized calibration layer by platt scaling.
+    - Isotonic regression and single calibration layer gives similar performance.  
 
-### LightGBM train on 5M rows, Train eval test split 0.8, 0.1, 0.1
+### LightGBM train on 5M rows, Train eval test split 0.8, 0.1, 0.1 (split seed = 42, 11)
 The best offline metrics we get is:
-| Metric         | Value               |
-|----------------|---------------------|
-| auc            | 0.7964011491019027  |
-| logloss        | 0.4498488910681045  |
-| pr_auc         | 0.5866849981967813  |
-| brier          | 0.14560254260769245 |
-| ctr_mean_true  | 0.25125             |
-| ctr_mean_pred  | 0.25001718486419217 |
-| ECE            | 0.004156878282011214|
+| Metric         | Value  |
+|----------------|--------|
+| auc            | 0.7964 |
+| logloss        | 0.4498 |
+| pr_auc         | 0.5867 |
+| brier          | 0.1456 |
+| ctr_mean_true  | 0.2513 |
+| ctr_mean_pred  | 0.2500 |
+| ECE            | 0.0042 |
 
 {'k': 0.01, 'n_top': 5000, 'ctr_top': 0.8986, 'ctr_all': 0.25125, 'lift': 3.5765174129353094} 
 
