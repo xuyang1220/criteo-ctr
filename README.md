@@ -20,5 +20,6 @@ see
 - notebooks/03_ctr_lightgbm.ipynb
 
 ## Data
-Download the Criteo Display Ads dataset and place train.txt under:
+Download the Criteo [Display Ads dataset](https://www.kaggle.com/datasets/mrkmakr/criteo-dataset?select=dac) 
+and place train.txt under:
 - data/criteo/train.txt
