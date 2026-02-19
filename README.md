@@ -27,9 +27,12 @@ and place train.txt under:
 ## Key results
 
 ### LR train on 5M rows
-AUC after bucketized calibration:      0.7694684662039462
-LogLoss after bucketized calibration:  0.4726018549577772
-Brier after bucketized calibration:    0.15356148840034717
+
+| Metric  | Value               |
+|---------|---------------------|
+| AUC     | 0.7695613027078851  |
+| LogLoss | 0.4737566646540216  |
+| Brier   | 0.1540212026676044  |
 
 This is achieved by
 
@@ -38,14 +41,25 @@ This is achieved by
   - Frequecy encoding
 
 - Model Architecture
+  - SGDClassifier optimization method.
   - Bucktized calibration layer by platt scaling.
 
 ### LightGBM train on 5M rows, Train eval test split 0.8, 0.1, 0.1
 The best offline metrics we get is:
-{'auc': 0.7964011491019027, 'logloss': 0.4498488910681045, 'pr_auc': 0.5866849981967813, 'brier': 0.14560254260769245, 'ctr_mean_true': 0.25125, 'ctr_mean_pred': 0.25001718486419217} 
-ECE: 0.004156878282011214 
+| Metric         | Value               |
+|----------------|---------------------|
+| auc            | 0.7964011491019027  |
+| logloss        | 0.4498488910681045  |
+| pr_auc         | 0.5866849981967813  |
+| brier          | 0.14560254260769245 |
+| ctr_mean_true  | 0.25125             |
+| ctr_mean_pred  | 0.25001718486419217 |
+| ECE            | 0.004156878282011214|
+
 {'k': 0.01, 'n_top': 5000, 'ctr_top': 0.8986, 'ctr_all': 0.25125, 'lift': 3.5765174129353094} 
+
 {'k': 0.05, 'n_top': 25000, 'ctr_top': 0.78296, 'ctr_all': 0.25125, 'lift': 3.1162587064676495}
+
 This is achieved by model params:
 ```python
     params = {
